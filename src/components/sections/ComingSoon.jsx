@@ -54,9 +54,9 @@ const ComingSoon = () => {
                     transition={{ duration: 1, delay: 0.8 }}
                     className="mt-20 flex justify-center gap-8 text-slate-500 text-sm tracking-widest uppercase"
                 >
-                    <a href="#" className="hover:text-cyan-400 transition-colors">Twitter</a>
-                    <a href="#" className="hover:text-cyan-400 transition-colors">Instagram</a>
-                    <a href="#" className="hover:text-cyan-400 transition-colors">LinkedIn</a>
+                    <a href="#" onClick={(e) => e.preventDefault()} className="hover:text-cyan-400 transition-colors">Twitter</a>
+                    <a href="#" onClick={(e) => e.preventDefault()} className="hover:text-cyan-400 transition-colors">Instagram</a>
+                    <a href="#" onClick={(e) => e.preventDefault()} className="hover:text-cyan-400 transition-colors">LinkedIn</a>
                 </motion.div>
             </div>
 
