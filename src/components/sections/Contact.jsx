@@ -74,7 +74,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-slate-500 font-mono uppercase tracking-wider mb-1">Visit Us</p>
-                      <p className="text-2xl font-bold text-white">Silicon Valley, CA</p>
+                      <p className="text-2xl font-bold text-white">Ahmedabad, India</p>
                     </div>
                   </div>
                 </div>
