@@ -13,14 +13,14 @@ const Services = () => {
             <div className="max-w-3xl">
               <h2 className="text-cyan-500 font-mono text-sm mb-4">/// OUR EXPERTISE</h2>
               <h3 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
-                High-End Engineering <br />
-                <span className="text-slate-600">For Modern Brands.</span>
+                Comprehensive Digital <br />
+                <span className="text-slate-600">Solutions & Engineering.</span>
               </h3>
             </div>
-            <button className="hidden md:flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 hover:bg-white hover:text-black transition-all group">
+            {/* <button className="hidden md:flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 hover:bg-white hover:text-black transition-all group">
                <span>View All Services</span>
                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </button> */}
           </div>
         </RevealSection>
 

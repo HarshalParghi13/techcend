@@ -17,7 +17,7 @@ const Hero = () => {
         <div className="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] bg-blue-600/10 rounded-full blur-[120px] mix-blend-screen animate-blob"></div>
         <div className="absolute top-[20%] -right-[10%] w-[60vw] h-[60vw] bg-cyan-500/10 rounded-full blur-[120px] mix-blend-screen animate-blob animation-delay-2000"></div>
         <div className="absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] bg-purple-600/10 rounded-full blur-[120px] mix-blend-screen animate-blob animation-delay-4000"></div>
-        <div className="absolute inset-0 bg-[url('[https://grainy-gradients.vercel.app/noise.svg](https://grainy-gradients.vercel.app/noise.svg)')] opacity-20 brightness-100 contrast-150"></div>
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150"></div>
       </div>
       
       <div className="container mx-auto px-6 relative z-10">
@@ -29,13 +29,13 @@ const Hero = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
                 </span>
-                Redefining Digital Agencies
+                AI-Native Technology Partner
               </div>
               
               <h1 className="text-6xl md:text-8xl font-bold text-white leading-[0.9] tracking-tighter">
-                We Build <br />
+                We Engineer <br />
                 <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
-                  Digital Scale.
+                  Digital Growth.
                   <svg className="absolute w-full h-3 -bottom-1 left-0 text-cyan-500 opacity-50" viewBox="0 0 100 10" preserveAspectRatio="none">
                     <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="2" fill="none" />
                   </svg>
@@ -43,7 +43,7 @@ const Hero = () => {
               </h1>
               
               <p className="text-xl text-slate-400 max-w-lg leading-relaxed">
-                Award-winning development studio merging creative aesthetics with engineering excellence.
+                We merge premium brand design with bespoke AI engineering to build intelligent digital experiences that drive measurable ROI.
               </p>
               
               <div className="flex flex-wrap gap-4 pt-4">
@@ -59,7 +59,7 @@ const Hero = () => {
                   onClick={() => scrollToSection('work')}
                   className="px-8 py-4 bg-slate-900/50 border border-white/10 text-white hover:bg-slate-800 rounded-full font-semibold transition-all backdrop-blur-md"
                 >
-                  View Case Studies
+                  Explore Solutions
                 </button>
               </div>
             </div>

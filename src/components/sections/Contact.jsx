@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, ArrowRight, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, MapPin, ArrowRight, CheckCircle, AlertCircle, ChevronDown } from 'lucide-react';
 
 // Inline fallback for the RevealSection to resolve the compilation issue
 const RevealSection = ({ children }) => <div className="w-full">{children}</div>;
 
 const Contact = () => {
   const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
+  
+  // States for our custom dropdown
+  const [selectedService, setSelectedService] = useState('Web Development');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const servicesList = ['Web Development', 'Product Design', 'Marketing'];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,8 +20,7 @@ const Contact = () => {
     const formData = new FormData(e.target);
     
     // 2. Add your Web3Forms Access Key here!
-    // Get yours for free at https://web3forms.com/
-    formData.append("access_key", "4a260179-e54b-4f35-9a02-474775f7e668"); 
+    formData.append("access_key", "007e26c3-e4cb-47af-965f-7152a175800b"); 
 
     try {
       // 3. Send the email
@@ -30,6 +34,7 @@ const Contact = () => {
       if (data.success) {
         setStatus('success');
         e.target.reset(); // Clear the form
+        setSelectedService('Web Development'); // Reset dropdown
         
         // Reset success message after 5 seconds
         setTimeout(() => setStatus('idle'), 5000);
@@ -80,38 +85,68 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* UPDATED FORM START */}
               <form className="space-y-6 bg-white/5 p-10 rounded-3xl backdrop-blur-sm border border-white/5" onSubmit={handleSubmit}>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-white uppercase tracking-wider">Name</label>
-                    {/* Added 'name' attribute and 'required' */}
                     <input type="text" name="name" required className="w-full bg-slate-950/50 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-white uppercase tracking-wider">Email</label>
-                    {/* Added 'name' attribute and 'required' */}
                     <input type="email" name="email" required className="w-full bg-slate-950/50 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all" />
                   </div>
                 </div>
                 
-                <div className="space-y-2">
+                {/* --- CUSTOM DROPDOWN IMPLEMENTATION --- */}
+                <div className="space-y-2 relative">
                   <label className="text-xs font-bold text-white uppercase tracking-wider">Service</label>
-                  {/* Added 'name' attribute */}
-                  <select name="service" className="w-full bg-slate-950/50 border border-white/10 rounded-xl px-4 py-4 text-slate-300 focus:outline-none focus:border-cyan-500 transition-all">
-                    <option value="Web Development">Web Development</option>
-                    <option value="Product Design">Product Design</option>
-                    <option value="Marketing">Marketing</option>
-                  </select>
+                  
+                  {/* Hidden input to ensure Web3Forms still receives the selected value */}
+                  <input type="hidden" name="service" value={selectedService} />
+                  
+                  {/* Dropdown Trigger */}
+                  <div 
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    className="w-full bg-slate-950/50 border border-white/10 rounded-xl px-4 py-4 text-slate-300 focus:outline-none focus:border-cyan-500 transition-all cursor-pointer flex items-center justify-between hover:border-white/20"
+                  >
+                    <span>{selectedService}</span>
+                    <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                  </div>
+
+                  {/* Dropdown Menu */}
+                  {isDropdownOpen && (
+                    <>
+                      {/* Invisible overlay to close dropdown when clicking outside */}
+                      <div className="fixed inset-0 z-40" onClick={() => setIsDropdownOpen(false)}></div>
+                      
+                      <div className="absolute z-50 w-full mt-2 bg-slate-900 border border-white/10 rounded-xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-top-2">
+                        {servicesList.map((service) => (
+                          <div
+                            key={service}
+                            onClick={() => {
+                              setSelectedService(service);
+                              setIsDropdownOpen(false);
+                            }}
+                            className={`px-4 py-4 cursor-pointer transition-colors ${
+                              selectedService === service 
+                                ? 'bg-cyan-500/10 text-cyan-400 font-medium' 
+                                : 'text-slate-300 hover:bg-white/5 hover:text-white'
+                            }`}
+                          >
+                            {service}
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  )}
                 </div>
+                {/* --- END CUSTOM DROPDOWN --- */}
                 
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-white uppercase tracking-wider">Details</label>
-                  {/* Added 'name' attribute and 'required' */}
                   <textarea name="message" rows="4" required className="w-full bg-slate-950/50 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-cyan-500 transition-all"></textarea>
                 </div>
                 
-                {/* Dynamic Submit Button */}
                 <button 
                   type="submit" 
                   disabled={status === 'submitting'}
@@ -123,7 +158,6 @@ const Contact = () => {
                   {status === 'error' && <><AlertCircle className="w-5 h-5 text-rose-500" /> Error. Try Again.</>}
                 </button>
               </form>
-              {/* UPDATED FORM END */}
 
             </div>
           </div>
