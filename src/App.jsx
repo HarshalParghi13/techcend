@@ -25,7 +25,7 @@ const App = () => {
       
       <Navbar />
       <Hero />
-      <InfiniteMarquee />
+      <InfiniteMarquee /> 
       <Services />
       <WhyChooseUs />
       <Portfolio />
