@@ -8,7 +8,7 @@ import SpotlightEffect from './components/ui/SpotlightEffect';
 import Navbar from './components/sections/Navbar';
 import Chatbot from './components/sections/Chatbot'
 import Hero from './components/sections/Hero';
-import InfiniteMarquee from './components/sections/InfiniteMarquee';
+import InfiniteMarquee from './components/sections/InfiniteMarquee'; 
 import Services from './components/sections/Services';
 import WhyChooseUs from './components/sections/WhyChooseUs';
 import Portfolio from './components/sections/Portfolio';
