@@ -3,6 +3,8 @@ import { Mail, MapPin, ArrowRight, CheckCircle, AlertCircle, ChevronDown } from 
 
 // Inline fallback for the RevealSection to resolve the compilation issue
 const RevealSection = ({ children }) => <div className="w-full">{children}</div>;
+const WEB3FORMS_URL = import.meta.env.VITE_WEB3FORMS_URL;
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
 const Contact = () => {
   const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
@@ -19,12 +21,17 @@ const Contact = () => {
     // 1. Get form data
     const formData = new FormData(e.target);
     
-    // 2. Add your Web3Forms Access Key here!
-    formData.append("access_key", "007e26c3-e4cb-47af-965f-7152a175800b"); 
+    if (!WEB3FORMS_URL || !WEB3FORMS_ACCESS_KEY) {
+      console.error('Web3Forms environment variables are not configured.');
+      setStatus('error');
+      return;
+    }
+
+    formData.append("access_key", WEB3FORMS_ACCESS_KEY); 
 
     try {
       // 3. Send the email
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch(WEB3FORMS_URL, {
         method: "POST",
         body: formData
       });

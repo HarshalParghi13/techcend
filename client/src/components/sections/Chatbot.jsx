@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Bot } from 'lucide-react';
 
+const API_URL = import.meta.env.VITE_API_URL?.replace(/\/$/, '');
+
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
@@ -32,8 +34,12 @@ const Chatbot = () => {
     setIsTyping(true);
 
     try {
+      if (!API_URL) {
+        throw new Error('VITE_API_URL is not configured');
+      }
+
       // 2. Send the message AND the chat history to your Node.js backend
-      const response = await fetch('http://localhost:5000/api/chat', {
+      const response = await fetch(`${API_URL}/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
