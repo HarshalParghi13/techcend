@@ -12,9 +12,13 @@ export const useOnScreen = (options) => {
       }
     }, options);
 
-    if (ref.current) observer.observe(ref.current);
-    return () => { if (ref.current) observer.unobserve(ref.current); };
-  }, [ref, options]);
+    const currentRef = ref.current;
+    if (currentRef) observer.observe(currentRef);
+
+    return () => {
+      if (currentRef) observer.unobserve(currentRef);
+    };
+  }, [options]);
 
   return [ref, isVisible];
 };

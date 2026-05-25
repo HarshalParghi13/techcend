@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 const ComingSoon = () => {
     return (
@@ -13,7 +13,7 @@ const ComingSoon = () => {
 
             {/* Hero Content */}
             <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
-                <motion.div
+                <Motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
@@ -28,10 +28,10 @@ const ComingSoon = () => {
                         We're busy building the future. Our new experience is almost ready.
                         Join our mailing list to be the first to know when we launch.
                     </p>
-                </motion.div>
+                </Motion.div>
 
                 {/* Action / Form */}
-                <motion.div
+                <Motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -45,10 +45,10 @@ const ComingSoon = () => {
                     <button className="px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-bold transition-all shadow-lg shadow-cyan-500/20 active:scale-95">
                         Notify Me
                     </button>
-                </motion.div>
+                </Motion.div>
 
                 {/* Social Links or Footer */}
-                <motion.div
+                <Motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1, delay: 0.8 }}
@@ -57,7 +57,7 @@ const ComingSoon = () => {
                     <a href="#" onClick={(e) => e.preventDefault()} className="hover:text-cyan-400 transition-colors">Twitter</a>
                     <a href="#" onClick={(e) => e.preventDefault()} className="hover:text-cyan-400 transition-colors">Instagram</a>
                     <a href="#" onClick={(e) => e.preventDefault()} className="hover:text-cyan-400 transition-colors">LinkedIn</a>
-                </motion.div>
+                </Motion.div>
             </div>
 
             {/* Animated Elements */}
