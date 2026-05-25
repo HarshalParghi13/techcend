@@ -1,5 +1,28 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build output
+dist/
+dist-ssr/
+build/
+**/dist/
+**/dist-ssr/
+**/build/
+
+# Environment files
+.env
+.env.*
+*.local
+**/.env
+**/.env.*
+**/*.local
+!.env.example
+!**/.env.example
+
 # Logs
-logs
+logs/
+**/logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -7,16 +30,34 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Runtime and cache files
+.cache/
+**/.cache/
+.vite/
+**/.vite/
+.eslintcache
+**/.eslintcache
+coverage/
+**/coverage/
+
+# Package manager cache
+.npm/
+.yarn/
+.pnpm-store/
+
+# Local server/runtime files
+*.pid
+*.seed
+*.pid.lock
+
+# OS files
+.DS_Store
+Thumbs.db
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
