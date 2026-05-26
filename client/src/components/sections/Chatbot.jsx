@@ -142,14 +142,21 @@ const Chatbot = () => {
       )}
 
       {/* Floating Toggle Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="group relative w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition-all duration-300"
-      >
-        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 opacity-80 group-hover:opacity-100 blur transition-opacity"></div>
-        <div className="relative w-full h-full rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white border border-white/20">
-          {isOpen ? <X size={24} /> : <MessageSquare size={24} />}
-        </div>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="group relative w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition-all duration-300"
+        >
+          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 opacity-80 group-hover:opacity-100 blur transition-opacity"></div>
+          <div className="relative w-full h-full rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white border border-white/20">
+            {isOpen ? <X size={24} /> : <MessageSquare size={24} />}
+          </div>
+          
+          {/* Glassmorphic Hover Tooltip - ONLY shows when chat is closed */}
+          {!isOpen && (
+            <span className="absolute bottom-full mb-4 right-0 scale-0 group-hover:scale-100 origin-bottom-right bg-white/10 backdrop-blur-md text-white text-xs font-semibold px-4 py-2 rounded-lg border border-white/20 transition-all duration-300 whitespace-nowrap shadow-xl pointer-events-none">
+              Techcend AI
+            </span>
+          )}
       </button>
     </div>
   );
